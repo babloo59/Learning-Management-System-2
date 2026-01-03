@@ -72,6 +72,7 @@ Install the following:
 
 ### 1️⃣ Login to MySQL
 
+```bash
 mysql -u root -p
 
 or on Ubuntu:
