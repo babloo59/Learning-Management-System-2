@@ -1,13 +1,13 @@
-# 📘 Learning Management System (LMS)
+#  Learning Management System (LMS)
 
 A full-stack **Learning Management System** built using **Java, JSP, Servlets, JDBC, MySQL**, and **Docker**.  
 This project demonstrates role-based access control, course management, student enrollment, and admin operations.
 
 ---
 
-## 🚀 Features
+##  Features
 
-### 👨‍🎓 Student
+###  Student
 - Register & Login
 - View available courses
 - Enroll in courses
@@ -15,7 +15,7 @@ This project demonstrates role-based access control, course management, student 
 - View profile (read-only by default)
 - Deactivate own account (soft delete)
 
-### 👨‍💼 Admin
+###  Admin
 - Login as Admin
 - Add & view courses
 - Manage users (activate / deactivate)
@@ -23,7 +23,7 @@ This project demonstrates role-based access control, course management, student 
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Backend:** Java, JSP, Servlets
 - **Database:** MySQL 8
@@ -34,8 +34,8 @@ This project demonstrates role-based access control, course management, student 
 
 ---
 
-## 📂 Project Structure
-
+##  Project Structure
+```
 LMS/
 ├── src/main/java
 │ └── com.bk.lms
@@ -53,10 +53,11 @@ LMS/
 ├── docker-compose.yml
 ├── pom.xml
 └── README.md
+```
 
 ---
 
-## ⚙️ Prerequisites
+##  Prerequisites
 
 Install the following:
 
@@ -68,29 +69,23 @@ Install the following:
 
 ---
 
-# 🗄️ MySQL Database Setup (FULL – COPY & RUN)
+#  MySQL Database Setup
 
-### 1️⃣ Login to MySQL
-
-```bash
-mysql -u root -p
-```
-or on Ubuntu:
-```bash
-sudo mysql
-```
-### 2️⃣ Create Database
+###  Create Database
 ```sql
 CREATE DATABASE lms;
 USE lms;
 ```
 
-3️⃣ Create Application User
+###  Create Application User
+```sql
 CREATE USER 'lmsuser'@'localhost' IDENTIFIED BY 'lms123';
 GRANT ALL PRIVILEGES ON lms.* TO 'lmsuser'@'localhost';
 FLUSH PRIVILEGES;
+```
 
-4️⃣ Create users Table
+###  Create users Table
+```sql
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(100) UNIQUE NOT NULL,
@@ -102,15 +97,17 @@ CREATE TABLE users (
     status ENUM('ACTIVE','INACTIVE') DEFAULT 'ACTIVE',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
-5️⃣ Create courses Table
+```
+###  Create courses Table
+```sql
 CREATE TABLE courses (
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(100) NOT NULL,
     description VARCHAR(255)
 );
-
-6️⃣ Create enrollments Table
+```
+###  Create enrollments Table
+```sql
 CREATE TABLE enrollments (
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
@@ -123,8 +120,9 @@ CREATE TABLE enrollments (
         REFERENCES courses(id)
         ON DELETE RESTRICT
 );
-
-7️⃣ Insert Default Admin User
+```
+###  Insert Default Admin User
+```sql
 INSERT INTO users
 (username, password, role, full_name, email, status)
 VALUES
@@ -136,12 +134,14 @@ VALUES
  'admin@lms.com',
  'ACTIVE'
 );
-
-🔐 Admin Login
+```
+##  Admin Login
+```ymal
 Username / Email: admin@lms.com
 Password: admin123
-
-🔧 Database Configuration in Code
+```
+##  Database Configuration in Code
+```java
 DBUtil.java
 private static final String URL =
     System.getenv("DB_URL") != null ?
@@ -155,53 +155,54 @@ private static final String USER =
 private static final String PASSWORD =
     System.getenv("DB_PASS") != null ?
     System.getenv("DB_PASS") : "lms123";
-
-🧪 Run Project Locally (Without Docker)
-1️⃣ Clone the repository
+```
+##🧪 Run Project Locally
+### Clone the repository
+```bash
 git clone https://github.com/<your-username>/lms-project.git
 cd lms-project
-
-2️⃣ Build the project
+```
+### Build the project
+```bash
 mvn clean package
+```
+### Deploy WAR to Tomcat
+- Copy target/lms.war
+- Paste into tomcat/webapps/
+- Start Tomcat
 
-3️⃣ Deploy WAR to Tomcat
-
-Copy target/lms.war
-
-Paste into tomcat/webapps/
-
-Start Tomcat
-
-4️⃣ Access the application
+### Access the application
+```bash
 http://localhost:8080/lms/
+```
 
-🐳 Run Project Using Docker (Recommended)
-1️⃣ Build WAR
+## Run Project Using Docker
+### Build WAR
+```bash
 mvn clean package
 copy target\lms.war .
-
-2️⃣ Start containers
+```
+### Start containers
+```bash
 docker-compose up --build
-
-3️⃣ Access the application
+```
+### Access the application
+```bash
 http://localhost:8080/
+```
 
+### Docker automatically:
+- Starts MySQL
+- Creates database & user
+- Deploys LMS on Tomcat
 
-Docker automatically:
-
-Starts MySQL
-
-Creates database & user
-
-Deploys LMS on Tomcat
-
-🧠 Resume Highlights
+## Resume Highlights
 • Developed a full-stack LMS using Java, JSP, Servlets, JDBC, and MySQL
 • Implemented role-based authentication for Admin and Student
 • Containerized the application using Docker and Docker Compose
 • Designed normalized database schema with foreign key constraints
 
-👤 Author
+## Author
 
 Babloo Kumar
 Computer Science Engineering Student
