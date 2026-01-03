@@ -74,5 +74,6 @@ Install the following:
 
 ```bash
 mysql -u root -p
+```
 
 or on Ubuntu:
