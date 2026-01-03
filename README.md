@@ -204,6 +204,8 @@ http://localhost:8080/
 
 ## Author
 
+```
 Babloo Kumar
 Computer Science Engineering Student
 Skilled in Java, JDBC, JSP, Servlets, MySQL, Docker
+```
