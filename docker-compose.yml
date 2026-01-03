@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  mysql:
+  image: mysql:8.0
+  container_name: lms-mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: lms
+    MYSQL_USER: lmsuser
+    MYSQL_PASSWORD: lms123
+  volumes:
+    - mysql_data:/var/lib/mysql
+
+
+  tomcat:
+    build: .
+    container_name: lms-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/lms
+      DB_USER: lmsuser
+      DB_PASS: lms123
+
+volumes:
+  mysql_data:

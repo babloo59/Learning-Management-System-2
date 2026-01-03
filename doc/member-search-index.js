@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"com.bk.lms.util","c":"DBUtil","l":"DBUtil()","u":"%3Cinit%3E()"},{"p":"com.bk.lms.util","c":"DBUtil","l":"getConnection()"}];updateSearchResults();
