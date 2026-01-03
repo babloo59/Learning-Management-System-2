@@ -36,3 +36,42 @@ This project demonstrates role-based access control, course management, student 
 
 ## 📂 Project Structure
 
+LMS/
+├── src/main/java
+│ └── com.bk.lms
+│ ├── controller
+│ ├── dao
+│ ├── model
+│ ├── service
+│ └── util
+│
+├── src/main/webapp
+│ ├── *.jsp
+│ └── WEB-INF
+│
+├── Dockerfile
+├── docker-compose.yml
+├── pom.xml
+└── README.md
+
+---
+
+## ⚙️ Prerequisites
+
+Install the following:
+
+- Java 17 or 21
+- Maven
+- MySQL 8
+- Docker & Docker Compose (for Docker run)
+- Git
+
+---
+
+# 🗄️ MySQL Database Setup (FULL – COPY & RUN)
+
+### 1️⃣ Login to MySQL
+
+mysql -u root -p
+
+or on Ubuntu:
