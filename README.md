@@ -156,7 +156,7 @@ private static final String PASSWORD =
     System.getenv("DB_PASS") != null ?
     System.getenv("DB_PASS") : "lms123";
 ```
-##🧪 Run Project Locally
+## Run Project Locally
 ### Clone the repository
 ```bash
 git clone https://github.com/<your-username>/lms-project.git
