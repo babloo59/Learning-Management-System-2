@@ -197,10 +197,10 @@ http://localhost:8080/
 - Deploys LMS on Tomcat
 
 ## Resume Highlights
-• Developed a full-stack LMS using Java, JSP, Servlets, JDBC, and MySQL
-• Implemented role-based authentication for Admin and Student
-• Containerized the application using Docker and Docker Compose
-• Designed normalized database schema with foreign key constraints
+- Developed a full-stack LMS using Java, JSP, Servlets, JDBC, and MySQL
+- Implemented role-based authentication for Admin and Student
+- Containerized the application using Docker and Docker Compose
+- Designed normalized database schema with foreign key constraints
 
 ## Author
 
