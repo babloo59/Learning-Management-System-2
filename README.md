@@ -1,6 +1,6 @@
 #  Learning Management System (LMS)
 
-A full-stack **Learning Management System** built using **Java, JSP, Servlets, JDBC, MySQL**, and **Docker**.  
+A full-stack **Learning Management System** built using **Java, JSP, Servlets, JDBC, MySQL**.  
 This project demonstrates role-based access control, course management, student enrollment, and admin operations.
 
 ---
